@@ -32,12 +32,22 @@
                                     <constraint firstAttribute="height" constant="60" id="per-zI-FdN"/>
                                 </constraints>
                             </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nTZ-wi-0AR">
+                                <rect key="frame" x="16" y="315" width="343" height="37"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="31"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="nTZ-wi-0AR" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="2Py-ta-jzK"/>
                             <constraint firstItem="WcV-8g-B8C" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="2np-GU-HMk"/>
+                            <constraint firstItem="nTZ-wi-0AR" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="Io1-A7-QWj"/>
+                            <constraint firstItem="nTZ-wi-0AR" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="ddt-wU-sax"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="WcV-8g-B8C" secondAttribute="trailing" id="j7a-xq-9D7"/>
                             <constraint firstItem="WcV-8g-B8C" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="lkM-b0-8od"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="nTZ-wi-0AR" secondAttribute="trailing" constant="16" id="xrg-yO-bzl"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -52,7 +62,8 @@
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <segue destination="Cv1-id-wAf" kind="showDetail" identifier="WriteSegue" id="qX3-dP-noH"/>
+                        <outlet property="madLib" destination="nTZ-wi-0AR" id="ukM-qu-6mg"/>
+                        <segue destination="Cv1-id-wAf" kind="presentation" identifier="WriteSegue" id="qX3-dP-noH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -85,7 +96,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Verb" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7cM-N3-Mxc">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Verb, Present Tense" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7cM-N3-Mxc">
                                 <rect key="frame" x="30" y="118" width="315" height="45"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="45" id="TIm-gj-h4w"/>
@@ -103,7 +114,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Verb" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lsx-eg-3ro">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Verb, Present Tense" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lsx-eg-3ro">
                                 <rect key="frame" x="30" y="240" width="315" height="45"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="45" id="zoe-D2-xba"/>
@@ -159,9 +170,11 @@
                         <outletCollection property="textFields" destination="7cM-N3-Mxc" collectionClass="NSMutableArray" id="lap-gz-zm8"/>
                         <outletCollection property="textFields" destination="hhn-ZC-ZX5" collectionClass="NSMutableArray" id="6Dh-RB-V1S"/>
                         <outletCollection property="textFields" destination="lsx-eg-3ro" collectionClass="NSMutableArray" id="iOf-QF-yIk"/>
+                        <segue destination="bIH-7e-SnS" kind="unwind" identifier="ReturnSegue" unwindAction="unwindToMainVCWithSegue:" id="sdC-DW-dSl"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Dm2-Pv-KLQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="bIH-7e-SnS" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1984.8" y="133.5832083958021"/>
         </scene>
